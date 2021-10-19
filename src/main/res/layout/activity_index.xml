@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawLayout">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+          <androidx.viewpager.widget.ViewPager
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/viewPager"
+              android:layout_marginBottom="100dp"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintBottom_toTopOf="@+id/bottomToolBar"/>
+            <LinearLayout
+                android:id="@+id/bottomToolBar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/bottomToolBar">
+<!--                消息-->
+                <LinearLayout
+                    android:id="@+id/msgFrag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/FragItemImageSize"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/msgImage"
+                        android:src="@drawable/msg_active" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="消息"
+                        android:id="@+id/msgText"
+                        android:textSize="@dimen/FragItemTextSize"
+                        android:textColor="@color/FragItemTextColor" />
+                </LinearLayout>
+<!--                联系人-->
+                <LinearLayout
+                    android:id="@+id/contactsFrag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/FragItemImageSize"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/contactsImage"
+                        android:src="@drawable/contacts" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/contactsText"
+                        android:text="联系人"
+                        android:textSize="@dimen/FragItemTextSize"
+                        android:textColor="@color/FragItemTextColor" />
+                </LinearLayout>
+<!--                看点-->
+                <LinearLayout
+                    android:id="@+id/watchFrag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/FragItemImageSize"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/watchImage"
+                        android:src="@drawable/watch" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="看点"
+                        android:id="@+id/watchText"
+                        android:textSize="@dimen/FragItemTextSize"
+                        android:textColor="@color/FragItemTextColor"/>
+                </LinearLayout>
+<!--                动态-->
+                <LinearLayout
+                    android:id="@+id/dynamicFrag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/FragItemImageSize"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/dynamicImage"
+                        android:src="@drawable/dynamic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="动态"
+                        android:id="@+id/dynamicText"
+                        android:textSize="@dimen/FragItemTextSize"
+                        android:textColor="@color/FragItemTextColor" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_marginLeft="-64dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/navView"
+        app:headerLayout="@layout/nav_head"
+        app:menu="@menu/nav_menu"
+        android:layout_gravity="start"/>
+</androidx.drawerlayout.widget.DrawerLayout>
