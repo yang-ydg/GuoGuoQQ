@@ -15,7 +15,7 @@ class MyNestedScrollView(context: Context,attributeSet: AttributeSet) : NestedSc
     private var mSmartScrollChangedListener:ISmartScrollChangedListener? = null
 
     //弹性参数
-    private var mInnerView: View? = null // 孩子View
+    private var mInnerView: View? = null //孩子View
     private var mDownY = 0f // 点击时y坐标
     private val mRect = Rect()
     private var offset = 0
