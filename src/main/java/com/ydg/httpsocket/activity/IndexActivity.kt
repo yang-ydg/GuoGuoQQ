@@ -1,10 +1,8 @@
 package com.ydg.httpsocket.activity
 
 import android.content.*
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
-import android.util.Log
 import android.view.View
 import android.view.Window
 import com.ydg.httpsocket.databinding.ActivityIndexBinding
@@ -27,6 +25,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.ydg.httpsocket.domain.User
 import com.ydg.httpsocket.receiver.NetWorkBroadcastReceiver
+import com.ydg.httpsocket.utils.LogUtil
 
 
 class IndexActivity : BaseActivity(), View.OnClickListener {
@@ -73,7 +72,11 @@ class IndexActivity : BaseActivity(), View.OnClickListener {
         val headiconView : ImageView = headView.findViewById(R.id.drawHeadIcon)
         headiconView.setImageBitmap(BitmapFactory.decodeByteArray(headIcon,0,headIcon!!.size))
         headiconView.setOnClickListener {
-            startActivity(Intent(this,PersonCardActivity::class.java))
+            val intent = Intent(this,PersonCardActivity::class.java)
+            intent.putExtra("username",username)
+            intent.putExtra("headIcon",headIcon)
+            intent.putExtra("perSign",perSign)
+            startActivity(intent)
         }
         super.onCreate(savedInstanceState)
         setContentView(bind.root)
@@ -205,7 +208,7 @@ class IndexActivity : BaseActivity(), View.OnClickListener {
 
     override fun onDestroy() {
         unbindService(conn)
-        Log.i("fragment1","activityOnDestroy")
+        LogUtil.i("fragment1","activityOnDestroy")
         super.onDestroy()
     }
 

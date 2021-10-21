@@ -2,32 +2,25 @@ package com.ydg.httpsocket.fragment
 
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.Icon
-import android.media.Image
-import android.media.ImageReader
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ydg.httpsocket.R
 import com.ydg.httpsocket.activity.ChatActivity
 import com.ydg.httpsocket.activity.IndexActivity
 import com.ydg.httpsocket.databinding.ContentIndex2Binding
 import com.ydg.httpsocket.domain.*
 import com.ydg.httpsocket.service.HttpRequestService
 import com.ydg.httpsocket.service.MqttService
+import com.ydg.httpsocket.utils.LogUtil
 import com.ydg.httpsocket.utils.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.File
 
 class fragment2() : Fragment() {
     var friendsList = ArrayList<User>()
@@ -122,7 +115,7 @@ class fragment2() : Fragment() {
             }
             
             override fun onFailure(call: Call<ResultVO<List<User>>>, t: Throwable) {
-                Log.i("ydgper", t.message ?: "")
+                LogUtil.i("ydgper", t.message ?: "")
                 Toast.makeText(activity,"获取好友列表失败!",Toast.LENGTH_LONG).show()
             }
 

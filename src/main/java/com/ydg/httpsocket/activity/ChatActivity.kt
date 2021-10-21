@@ -1,13 +1,9 @@
 package com.ydg.httpsocket.activity
 
-import android.R.attr
 import android.content.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 
-import androidx.core.content.edit
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -18,13 +14,8 @@ import com.ydg.httpsocket.receiver.NetWorkBroadcastReceiver
 
 import com.ydg.httpsocket.service.MqttService
 import com.ydg.httpsocket.utils.SoftHideKeyBoardUtil
-import android.widget.Toast
-
-import android.R.attr.keyHeight
-import android.graphics.Color
 import android.widget.ScrollView
-import android.view.MotionEvent
-import android.view.View.OnTouchListener
+import com.ydg.httpsocket.utils.LogUtil
 
 
 class ChatActivity : AppCompatActivity(){
@@ -43,7 +34,7 @@ class ChatActivity : AppCompatActivity(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.v(TAG,"onCreate()===========")
+        LogUtil.v(TAG,"onCreate()===========")
         toClientId = intent.getStringExtra("toClientId").toString()
         chatName = intent.getStringExtra("chatName").toString()
         friendheadicon = intent.getByteArrayExtra("friendHeadIcon")
@@ -93,7 +84,7 @@ class ChatActivity : AppCompatActivity(){
         }
 
         bind.send.setOnClickListener {
-            Log.v(TAG,"publishMsgButtonCLick===========")
+            LogUtil.v(TAG,"publishMsgButtonCLick===========")
             val msgContent = bind.inputText.text.toString()
             bind.inputText.setText("")
             val msg = Msg(clientId!!,toClientId!!,msgContent,Msg.TYPE_SENT)
@@ -122,7 +113,7 @@ class ChatActivity : AppCompatActivity(){
 //    }
 
     override fun onDestroy() {
-        Log.v(TAG,"onDestroy()===========")
+        LogUtil.v(TAG,"onDestroy()===========")
         unregisterReceiver(myBroadcastReceiver)
         unregisterReceiver(netWorkBroadcastReceiver)
         super.onDestroy()

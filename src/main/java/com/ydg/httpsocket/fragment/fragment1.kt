@@ -5,7 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
+import com.ydg.httpsocket.utils.LogUtil
 import android.view.*
 import android.widget.PopupMenu
 import androidx.core.content.edit
@@ -32,12 +32,12 @@ class fragment1() : Fragment(), View.OnClickListener {
     private lateinit var act : IndexActivity
 
     override fun onAttach(context: Context) {
-        Log.i("fragment1","onAttach")
+        LogUtil.i("fragment1","onAttach")
         super.onAttach(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.i("fragment1","onCreate")
+        LogUtil.i("fragment1","onCreate")
         super.onCreate(savedInstanceState)
     }
     override fun onCreateView(
@@ -45,7 +45,7 @@ class fragment1() : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.i("fragment1","onCreateView")
+        LogUtil.i("fragment1","onCreateView")
         act = activity as IndexActivity
         prefs = activity!!.getSharedPreferences(act.user.username, Context.MODE_PRIVATE)
         initChatList()
@@ -106,19 +106,19 @@ class fragment1() : Fragment(), View.OnClickListener {
     }
 
     override fun onDestroyView() {
-        Log.i("fragment1","onDestroyView")
+        LogUtil.i("fragment1","onDestroyView")
         writeInFile()
         _binding = null
         super.onDestroyView()
     }
 
     override fun onDestroy() {
-        Log.i("fragment1","onDestroy")
+        LogUtil.i("fragment1","onDestroy")
         super.onDestroy()
     }
 
     override fun onDetach() {
-        Log.i("fragment1","onDetach")
+        LogUtil.i("fragment1","onDetach")
         super.onDetach()
     }
 

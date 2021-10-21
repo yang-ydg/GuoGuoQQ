@@ -1,17 +1,10 @@
 package com.ydg.httpsocket.activity
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.SharedPreferences
 import android.graphics.drawable.AnimationDrawable
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -23,13 +16,10 @@ import com.ydg.httpsocket.databinding.ActivityLoginBinding
 import com.ydg.httpsocket.domain.ResultCode
 import com.ydg.httpsocket.domain.ResultVO
 import com.ydg.httpsocket.domain.User
-import com.ydg.httpsocket.receiver.NetWorkBroadcastReceiver
-import com.ydg.httpsocket.receiver.ServerErrBroadCastReceiver
 import com.ydg.httpsocket.service.HttpRequestService
-import com.ydg.httpsocket.service.MqttService
+import com.ydg.httpsocket.utils.LogUtil
 import com.ydg.httpsocket.utils.MethodUtil
 import com.ydg.httpsocket.utils.ServiceCreator
-import com.ydg.httpsocket.utils.SoftHideKeyBoardUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,7 +56,7 @@ class LoginActivity : BaseActivity() {
                     ) {
                         var result = (response.body() ?: ResultVO(ResultCode.FAILURE,null)) as ResultVO<User>
                         if (result.code == ResultCode.SUCCESS.code){
-                            Log.i("loginActivity",result.data.toString())
+                            LogUtil.i("loginActivity",result.data.toString())
                             prefs = getSharedPreferences("loginedUser",Context.MODE_PRIVATE)
                             prefs.edit {
                                 putString("username",result.data!!.username)
@@ -89,7 +79,7 @@ class LoginActivity : BaseActivity() {
                     }
                     override fun onFailure(call: Call<ResultVO<User>>, t: Throwable) {
                         bind.loginPro.visibility = View.INVISIBLE
-                        Log.i("loginActivity","failure")
+                        LogUtil.i("loginActivity","failure")
                         var intent = Intent("com.ydg.ServerErrBroadcastReceiver")
                         sendBroadcast(intent)
                     }

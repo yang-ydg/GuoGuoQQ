@@ -2,20 +2,13 @@ package com.ydg.httpsocket.activity
 
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
+
 import android.content.SharedPreferences
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Message
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ydg.httpsocket.databinding.ActivityWelcomeBinding
-import com.ydg.httpsocket.receiver.NetWorkBroadcastReceiver
-import com.ydg.httpsocket.service.MqttService
 import java.util.*
 
 class WelcomeActivity : AppCompatActivity() {

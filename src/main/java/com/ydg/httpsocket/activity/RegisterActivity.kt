@@ -4,18 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import com.ydg.httpsocket.R
 import com.ydg.httpsocket.databinding.ActivityRegisterBinding
 import com.ydg.httpsocket.domain.ResultCode
 import com.ydg.httpsocket.domain.ResultVO
 import com.ydg.httpsocket.domain.User
 import com.ydg.httpsocket.service.HttpRequestService
+import com.ydg.httpsocket.utils.LogUtil
 import com.ydg.httpsocket.utils.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
@@ -91,7 +89,7 @@ class RegisterActivity : BaseActivity() {
                     }
                     override fun onFailure(call: Call<ResultVO<Any?>>, t: Throwable) {
                         bind.registerPro.visibility = View.INVISIBLE
-                        Log.i("retrofitErr:",t.message!!)
+                        LogUtil.i("retrofitErr:",t.message!!)
                         var intent = Intent("com.ydg.ServerErrBroadcastReceiver")
                         sendBroadcast(intent)
                     }
