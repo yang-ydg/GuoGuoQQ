@@ -76,7 +76,7 @@ class LoginActivity : BaseActivity() {
                             var intent = Intent(act, IndexActivity::class.java)
                             intent.putExtra("username",result.data!!.username)
                             intent.putExtra("headIcon",result.data!!.headIcon)
-                            intent.putExtra("headIcon",result.data!!.perSign)
+                            intent.putExtra("perSign",result.data!!.perSign)
                             startActivity(intent)
                             finish()
                         }else if(result.code == ResultCode.VALIDATE_FAILURE.code){
@@ -89,6 +89,7 @@ class LoginActivity : BaseActivity() {
                     }
                     override fun onFailure(call: Call<ResultVO<User>>, t: Throwable) {
                         bind.loginPro.visibility = View.INVISIBLE
+                        Log.i("loginActivity","failure")
                         var intent = Intent("com.ydg.ServerErrBroadcastReceiver")
                         sendBroadcast(intent)
                     }
@@ -125,8 +126,6 @@ class LoginActivity : BaseActivity() {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
     }
-
-
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
