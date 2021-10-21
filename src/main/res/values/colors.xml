@@ -13,4 +13,7 @@
     <color name="FragItemActiveTextColor">#000000</color>
     <color name="popupBackgroud">#A6A6A6</color>
     <color name="gray">#F1F2F6</color>
+    <color name="halfTransparent">#AACBCBCD</color>
+    <color name="cardLabelClicked">#AAFFFFFF</color>
+    <color name="splitLine">#17000000</color>
 </resources>

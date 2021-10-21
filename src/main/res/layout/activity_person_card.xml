@@ -54,6 +54,7 @@
         <com.ydg.httpsocket.components.MyNestedScrollView
             android:id="@+id/cardContent"
             android:overScrollMode="never"
+            android:fillViewport="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -64,7 +65,279 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="420dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:paddingHorizontal="18dp"
+                    android:paddingBottom="25dp"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="90dp"
+                        android:id="@+id/cardHeadIcon"
+                        android:layout_height="90dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="bottom"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/cardUsername"
+                            android:textColor="@color/white"
+                            android:textSize="30sp"
+                            android:textStyle="bold"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="20岁"
+                                style="@style/card_tag" />
+                            <TextView
+                                style="@style/card_tag"
+                                android:text="男"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/halfTransparent"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/card_selected_recycler"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="5dp"
+                        android:paddingLeft="15dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/card_label_qq"
+                                style="@style/card_icon_dimen" />
+
+                            <TextView
+                                android:id="@+id/card_clientId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                style="@style/card_icon_dimen"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/card_label_place" />
+
+                            <TextView
+                                android:id="@+id/naticePlace"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="中国"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/card_detail_row"
+                            android:background="@drawable/card_label_bg"
+                            android:layout_marginTop="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="详细资料"
+                                android:textColor="@color/black" />
+
+                            <ImageView
+                                style="@style/card_icon_dimen"
+                                android:layout_marginLeft="5dp"
+                                android:src="@drawable/card_enter"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/splitLine"/>
+<!--                    个性签名-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/card_perSign_row"
+                        android:background="@drawable/card_label_bg"
+                        android:padding="15dp">
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/card_label_persign"/>
+                        <TextView
+                            android:id="@+id/card_perSign"
+                            style="@style/card_label_text"/>
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:src="@drawable/card_enter"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/splitLine"/>
+<!--                    等级-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/card_level_row"
+                        android:background="@drawable/card_label_bg"
+                        android:padding="15dp">
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/card_label_level"/>
+                        <TextView
+                            android:id="@+id/card_level"
+                            style="@style/card_label_text"/>
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:src="@drawable/card_enter"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/splitLine"/>
+<!--                    权益-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/card_privilege_row"
+                        android:background="@drawable/card_label_bg"
+                        android:padding="15dp">
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/card_label_privilege"/>
+                        <TextView
+                            android:id="@+id/card_privilege"
+                            style="@style/card_label_text"
+                            />
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:src="@drawable/card_enter"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/splitLine"/>
+<!--                    我的空间-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/card_space_row"
+                        android:background="@drawable/card_label_bg"
+                        android:padding="15dp">
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/card_label_space"/>
+                        <TextView
+                            android:id="@+id/card_space"
+                            style="@style/card_label_text"
+                            android:text="我的空间"/>
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:src="@drawable/card_enter"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/splitLine"/>
+<!--                    个性标签-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/card_perTag_row"
+                        android:background="@drawable/card_label_bg"
+                        android:padding="15dp">
+                        <TextView
+                            android:id="@+id/card_perTag"
+                            android:text="个性标签"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            style="@style/card_label_text" />
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:src="@drawable/card_enter"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"></LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/splitLine"/>
+<!--                    匿问我答-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/card_anonymous_row"
+                        android:background="@drawable/card_label_bg"
+                        android:padding="15dp">
+                        <TextView
+                            android:id="@+id/card_anonymous"
+                            android:text="匿问我答"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            style="@style/card_label_text" />
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:src="@drawable/card_enter"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"></LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/splitLine"/>
+<!--                    扩展资料-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/card_extends_row"
+                        android:background="@drawable/card_label_bg"
+                        android:padding="15dp">
+                        <TextView
+                            android:id="@+id/card_extends"
+                            android:text="扩展资料"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            style="@style/card_label_text" />
+                        <ImageView
+                            style="@style/card_icon_dimen"
+                            android:src="@drawable/card_enter"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"></LinearLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -79,10 +352,12 @@
         <TextView
             android:text="个性名片"
             android:id="@+id/btn1"
+            android:background="@drawable/card_bg_gray"
             style="@style/card_bottom_btn" />
         <TextView
             style="@style/card_bottom_btn"
             android:id="@+id/btn2"
+            android:background="@drawable/card_bg_gray"
             android:layout_marginHorizontal="12dp"
             android:text="编辑资料" />
         <TextView

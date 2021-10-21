@@ -392,6 +392,7 @@ public class StickyScrollView extends NestedScrollView {
             v.startAnimation(anim);
         }
     }
+
 }
 
 
